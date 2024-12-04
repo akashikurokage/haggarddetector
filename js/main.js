@@ -69,7 +69,7 @@ video.addEventListener("playing", () => {
       
       document.getElementById("age").innerText = `Age - ${interpolatedAge}`;
       document.getElementById("gender").innerText = `Gender - ${gender}`;
-      document.getElementById("emotion").innerText = `Face Status - ${emotion[0]}`;
+      document.getElementById("emotion").innerText = `Face - ${emotion[0]}`;
     }
   }, 10);
 });
