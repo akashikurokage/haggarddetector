@@ -17,7 +17,6 @@ function startVideo() {
     err => console.error(err)
   );
 }
-
 function screenResize(isScreenSmall) {
   if (isScreenSmall.matches) {
     // If media query matches
@@ -53,7 +52,6 @@ video.addEventListener("playing", () => {
 
     faceapi.draw.drawDetections(canvas, resizedDetections);
     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
-    
     if (resizedDetections && Object.keys(resizedDetections).length > 0) {
       const age = resizedDetections.age;
       const interpolatedAge = interpolateAgePredictions(age);
@@ -68,10 +66,10 @@ video.addEventListener("playing", () => {
       } else {
         emotion = "normal"; // Change all other emotions to "normal"
       }
-
+      
       document.getElementById("age").innerText = `Age - ${interpolatedAge}`;
       document.getElementById("gender").innerText = `Gender - ${gender}`;
-      document.getElementById("emotion").innerText = `Emotion - ${emotion}`;
+      document.getElementById("emotion").innerText = `Emotion - ${emotion[0]}`;
     }
   }, 10);
 });
