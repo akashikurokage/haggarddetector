@@ -61,7 +61,7 @@ video.addEventListener("playing", () => {
       
       // Determine the emotion and replace "neutral" with "haggard"
       let emotion = Object.keys(expressions).filter(item => expressions[item] === maxValue)[0];
-      if (emotion === "neutral") {
+      if (emotion === "neutral" || "sadness") {
         emotion = "haggard"; // Change "neutral" to "haggard"
       } else {
         emotion = "normal"; // Change all other emotions to "normal"
