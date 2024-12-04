@@ -11,12 +11,13 @@ Promise.all([
 ]).then(startVideo);
 
 function startVideo() {
-  navigator.getUserMedia(
+  navigator.getUser Media(
     { video: {} },
     stream => (video.srcObject = stream),
     err => console.error(err)
   );
 }
+
 function screenResize(isScreenSmall) {
   if (isScreenSmall.matches) {
     // If media query matches
@@ -52,18 +53,25 @@ video.addEventListener("playing", () => {
 
     faceapi.draw.drawDetections(canvas, resizedDetections);
     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
+    
     if (resizedDetections && Object.keys(resizedDetections).length > 0) {
       const age = resizedDetections.age;
       const interpolatedAge = interpolateAgePredictions(age);
       const gender = resizedDetections.gender;
       const expressions = resizedDetections.expressions;
       const maxValue = Math.max(...Object.values(expressions));
-      const emotion = Object.keys(expressions).filter(
-        item => expressions[item] === maxValue
-      );
+      
+      // Determine the emotion and replace "neutral" with "haggard"
+      let emotion = Object.keys(expressions).filter(item => expressions[item] === maxValue)[0];
+      if (emotion === "neutral") {
+        emotion = "haggard"; // Change "neutral" to "haggard"
+      } else {
+        emotion = "normal"; // Change all other emotions to "normal"
+      }
+
       document.getElementById("age").innerText = `Age - ${interpolatedAge}`;
       document.getElementById("gender").innerText = `Gender - ${gender}`;
-      document.getElementById("emotion").innerText = `Emotion - ${emotion[0]}`;
+      document.getElementById("emotion").innerText = `Emotion - ${emotion}`;
     }
   }, 10);
 });
