@@ -2,34 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	  
-    <title>Haggard Detection</title>
-
-	  <link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>Fresh Detection</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-   <main>
-		 <nav>
-			<h1>HAGGARD DETECTOR</h1>
-		</nav>
-		
-			 <div class="container">
-		      <div class="video-wrapper">
-					<video id="video" autoplay muted></video>
-				</div>
-		
-		    <div class="result-container">
-		      <div id="emotion">Face</div>
-		      <div id="gender">Gender</div>
-		      <div id="age">Age</div>
-		    </div>
-		</div>
-	</main>
+    <header>Fresh Detector in the browser using Javascript</header>
+    <div class="container">
+      <video id="video" height="500" width="500" autoplay muted></video>
+    </div>
+    <div class="result-container">
+      <div id="emotion">Freshness Status</div>
+      <div id="gender">Gender</div>
+      <div id="age">Age</div>
+    </div>
+
     <script src="./js/face-api.min.js"></script>
     <script src="./js/main.js"></script>
   </body>
